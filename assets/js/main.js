@@ -7,7 +7,7 @@ const limit = 10
 let offset = 0;
 
 function convertPokemonToLi(pokemon) {
-    return `
+    return(`
         <li class="pokemon ${pokemon.type}">
             <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span>
@@ -24,7 +24,7 @@ function convertPokemonToLi(pokemon) {
                 Details
             </button>
         </li>
-    `
+`)
 }
 
 function loadPokemonItens(offset, limit) {
