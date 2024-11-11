@@ -20,21 +20,22 @@ function convertPokemonToLi(pokemon) {
                 <img src="${pokemon.photo}"
                      alt="${pokemon.name}">
             </div>  
-        </li>`); 
+        </li>
+        `); 
          
 }
 
 function moreDetails(pokemon) {
-    return `
+    return  `
         <li class="pokemon ${pokemon.type}">
             <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span> 
-            <span class="name">${pokemon.weight/10} Kg</span>
-            <span class="name">${pokemon.height}0 cm</span>
+            <span class="profile">${pokemon.weight/10} Kg</span>
+            <span class="profile">${pokemon.height}0 cm</span>
 
             <div class="detail">
                 <ol class="types">
-                    ${pokemon.abilities.map((ability) => `<li class="type ${ability}">${ability}</li>`).join('')}
+                    ${pokemon.abilities.map((ability) => `<li class="hab ${ability}">${ability}</li>`).join('')}
                     ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
                 </ol>
                 <img src="${pokemon.photo}"
@@ -52,6 +53,9 @@ function loadPokemonItens(offset, limit) {
             const details = pokemons.map(moreDetails).join('')
             pokemonList.innerHTML = ''
             pokemonList.innerHTML += details  
+
+            
+        //criar um novo botao para esconder os detalhes
     })
     }); 
 }
@@ -72,4 +76,4 @@ loadMoreButton.addEventListener('click', () => {
     }
 })
 
- // falta mudar o css para melhorar a aparencia dos novos detalhes, e fazer com que os dois botoes trabalhem em conjunto
+ // falta fazer com que os dois botoes trabalhem em conjunto

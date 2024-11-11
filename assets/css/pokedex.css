@@ -99,6 +99,17 @@
     margin-bottom: .25rem;
 }
 
+.pokemon .profile {
+    color: #fff;
+    padding: .25rem .5rem;
+    margin: .25rem 0;
+    font-size: .625rem;
+    border-radius: 1rem;
+    width: 65px;
+    text-align: center;
+    background: #909beefd;
+}
+
 .pokemon .detail {
     display: flex;
     flex-direction: row;
@@ -119,6 +130,16 @@
     font-size: .625rem;
     border-radius: 1rem;
     filter: brightness(1.1);
+    text-align: center;
+}
+.pokemon .detail .types .hab {
+    color: #fff;
+    list-style: none;
+    padding: .25rem .5rem;
+    margin: .25rem 0;
+    font-size: .625rem;
+    border-radius: 1rem;
+    background: #cfc56c;
     text-align: center;
 }
 
