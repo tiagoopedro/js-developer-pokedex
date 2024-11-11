@@ -159,22 +159,23 @@
 
 .pagination button {
     padding: .25rem .5rem;
-    margin: .25rem 0;
+    margin: .25rem .50rem;
     font-size: .625rem;
     color: #fff;
     background-color: #6c79db;
     border: none;
     border-radius: 1rem;
 }
+
 #detailButton {
     padding: .25rem .5rem;
-    margin: .25rem 0;
+    margin: .25rem .50rem;
     font-size: .625rem;
     color: #fff;
     background-color: #4abba8;
     border: none;
     border-radius: 1rem;
-    width: 40%;
+    width: 7%;   
 }
 
 @media screen and (min-width: 380px) {
