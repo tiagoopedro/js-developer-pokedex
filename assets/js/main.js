@@ -7,10 +7,10 @@ const limit = 10
 let offset = 0;
 
 function convertPokemonToLi(pokemon) {
-    return(`
+    return (`
         <li class="pokemon ${pokemon.type}">
             <span class="number">#${pokemon.number}</span>
-            <span class="name">${pokemon.name}</span>
+            <span class="name">${pokemon.name}</span>  
 
             <div class="detail">
                 <ol class="types">
@@ -23,15 +23,15 @@ function convertPokemonToLi(pokemon) {
             <button id="detailButton" type="button">
                 Details
             </button>
-        </li>
-`)
+        </li>`); 
+         
 }
 
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
         const newHtml = pokemons.map(convertPokemonToLi).join('')
         pokemonList.innerHTML += newHtml
-    })
+    }); 
 }
 
 loadPokemonItens(offset, limit)
@@ -53,8 +53,8 @@ loadMoreButton.addEventListener('click', () => {
 function moreDetails(pokemon) {
     return `
         <li class="pokemon ${pokemon.type}">
-           <span class="name">${pokemon.weight} Kg</span>
-            <span class="name">${pokemon.height} cm</span>
+            <span class="name">${pokemon.weight/10} Kg</span>
+            <span class="name">${pokemon.height}0 cm</span>
 
             <div class="detail">
                 <ol class="types">
@@ -62,7 +62,7 @@ function moreDetails(pokemon) {
                 </ol>
             </div>
         </li>`
-} // o bo ta na div detail e no botao de detalhe de cada pokemon
+} // o bo ta no botao de detalhe de cada pokemon
 detailButton.addEventListener('click', (offset, limit) => {
     
         pokeApi.getPokemons(offset, limit).then((pokemons = []) => {

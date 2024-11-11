@@ -17,13 +17,14 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
     const abilities = pokeDetail.abilities.map((habilidade) => habilidade.ability.name)
     const [ability] = abilities
 
-    pokemon.ability1 = ability
-    pokemon.ability2 = abilities
+    pokemon.ability = ability
+    pokemon.abilities = abilities
     
+   
     pokemon.height = pokeDetail.height 
     pokemon.weight = pokeDetail.weight
-
-    return pokemon
+    
+    return pokemon    
 }
 
 pokeApi.getPokemonDetail = (pokemon) => {
