@@ -19,18 +19,40 @@ function convertPokemonToLi(pokemon) {
 
                 <img src="${pokemon.photo}"
                      alt="${pokemon.name}">
-            </div>
-            <button id="detailButton" type="button">
-                Details
-            </button>
+            </div>  
         </li>`); 
          
+}
+
+function moreDetails(pokemon) {
+    return `
+        <li class="pokemon ${pokemon.type}">
+            <span class="number">#${pokemon.number}</span>
+            <span class="name">${pokemon.name}</span> 
+            <span class="name">${pokemon.weight/10} Kg</span>
+            <span class="name">${pokemon.height}0 cm</span>
+
+            <div class="detail">
+                <ol class="types">
+                    ${pokemon.abilities.map((ability) => `<li class="type ${ability}">${ability}</li>`).join('')}
+                    ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
+                </ol>
+                <img src="${pokemon.photo}"
+                     alt="${pokemon.name}">
+            </div>     
+        </li>`
 }
 
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
         const newHtml = pokemons.map(convertPokemonToLi).join('')
         pokemonList.innerHTML += newHtml
+        
+        detailButton.addEventListener('click', () => {          
+            const details = pokemons.map(moreDetails).join('')
+            pokemonList.innerHTML = ''
+            pokemonList.innerHTML += details  
+    })
     }); 
 }
 
@@ -50,23 +72,4 @@ loadMoreButton.addEventListener('click', () => {
     }
 })
 
-function moreDetails(pokemon) {
-    return `
-        <li class="pokemon ${pokemon.type}">
-            <span class="name">${pokemon.weight/10} Kg</span>
-            <span class="name">${pokemon.height}0 cm</span>
-
-            <div class="detail">
-                <ol class="types">
-                    ${pokemon.abilities.map((ability) => `<li class="type ${ability}">${ability}</li>`).join('')}
-                </ol>
-            </div>
-        </li>`
-} // o bo ta no botao de detalhe de cada pokemon
-detailButton.addEventListener('click', (offset, limit) => {
-    
-        pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
-            const details = pokemons.map(moreDetails).join('')
-            pokemonList.innerHTML += details  
-        })
-    })
+ // falta mudar o css para melhorar a aparencia dos novos detalhes, e fazer com que os dois botoes trabalhem em conjunto
