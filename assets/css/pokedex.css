@@ -145,6 +145,16 @@
     border: none;
     border-radius: 1rem;
 }
+#detailButton {
+    padding: .25rem .5rem;
+    margin: .25rem 0;
+    font-size: .625rem;
+    color: #fff;
+    background-color: #4abba8;
+    border: none;
+    border-radius: 1rem;
+    width: 40%;
+}
 
 @media screen and (min-width: 380px) {
     .pokemons {
