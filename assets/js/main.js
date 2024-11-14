@@ -76,4 +76,3 @@ loadMoreButton.addEventListener('click', () => {
 
  // falta fazer com que os dois botoes trabalhem em conjunto
 
- 
