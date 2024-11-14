@@ -2,6 +2,7 @@ const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
 const detailButton = document.getElementById('detailButton')
 
+
 const maxRecords = 151
 const limit = 10
 let offset = 0;
@@ -40,7 +41,7 @@ function moreDetails(pokemon) {
                 </ol>
                 <img src="${pokemon.photo}"
                      alt="${pokemon.name}">
-            </div>     
+            </div> 
         </li>`
 }
 
@@ -52,8 +53,7 @@ function loadPokemonItens(offset, limit) {
         detailButton.addEventListener('click', () => {          
             const details = pokemons.map(moreDetails).join('')
             pokemonList.innerHTML = ''
-            pokemonList.innerHTML += details 
-                         
+            pokemonList.innerHTML += details                   
         //criar um novo botao para esconder os detalhes
     })
     }); 
@@ -75,3 +75,5 @@ loadMoreButton.addEventListener('click', () => {
 })
 
  // falta fazer com que os dois botoes trabalhem em conjunto
+
+ 
