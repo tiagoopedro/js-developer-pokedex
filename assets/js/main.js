@@ -7,7 +7,7 @@ const limit = 10
 let offset = 0;
 
 function convertPokemonToLi(pokemon) {
-    return (`
+    return `
         <li class="pokemon ${pokemon.type}">
             <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span>  
@@ -21,7 +21,7 @@ function convertPokemonToLi(pokemon) {
                      alt="${pokemon.name}">
             </div>  
         </li>
-        `); 
+        `
          
 }
 
@@ -52,9 +52,8 @@ function loadPokemonItens(offset, limit) {
         detailButton.addEventListener('click', () => {          
             const details = pokemons.map(moreDetails).join('')
             pokemonList.innerHTML = ''
-            pokemonList.innerHTML += details  
-
-            
+            pokemonList.innerHTML += details 
+                         
         //criar um novo botao para esconder os detalhes
     })
     }); 
@@ -69,7 +68,6 @@ loadMoreButton.addEventListener('click', () => {
     if (qtdRecordsWithNexPage >= maxRecords) {
         const newLimit = maxRecords - offset
         loadPokemonItens(offset, newLimit)
-
         loadMoreButton.parentElement.removeChild(loadMoreButton)
     } else {
         loadPokemonItens(offset, limit)
