@@ -167,7 +167,10 @@
     border-radius: 1rem;
 }
 .pokemon:hover {
-    
+    filter: brightness(1.15);
+        box-shadow: moccasin;
+        cursor: pointer;
+ 
 }
 
 
