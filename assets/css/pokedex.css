@@ -214,12 +214,6 @@
 
 }
 
-.stat-bar p{
-    
-    border-radius: 5px;
-    padding: 0.6rem;
-    box-shadow: 0 0 0 0.15rem rgb(126, 126, 126);
-}
 
 #hability{
     display: flex;

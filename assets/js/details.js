@@ -13,15 +13,12 @@ const moreDetails = (pokemon) =>{
             <button id="closeBtn" onClick="closewindow()">X</button>
             <li class="pokemon ${pokemon.type}">
                 <span class="name">${pokemon.name}</span>
-                <span class="number">#${pokemon.id.toString().padStart(3,"0")}</span>
+                <span class="number">#${pokemon.id}</span>
                 <div class="detail">
-                    <ol class="types">
-                        ${pokemon.types.map((type) =>`<li class="type ${type}">${type}</li>`).join('')}
-                    </ol>
                     </div>
                         <img id="img-pokemon" src="${photo}"alt="${pokemon.name}">
                         <div id="data">
-                            <h4>Base Stats</h4>
+                            <h4>Details</h4>
                             <div id="hability">
                                 <div class="stat-desc">
                                     ${pokemon.stats.map((name_stats) =>`<p class="${type}">${name_stats.stat.name}</p>`).join('')}
@@ -29,8 +26,8 @@ const moreDetails = (pokemon) =>{
                             <div class="bar-inner"> ${pokemon.stats.map((base_stats) =>`<p class="${type}">${base_stats.base_stat}</p>`).join('')}</div>
                         </div>
                         <div id="stats">
-                            <div class="stat-bar">
-                                <p>Height: ${(pokemon.height/10).toFixed(2)}m</p>
+                            <div>
+                                <p>Height: ${(pokemon.height)}cm</p>
                                 <p>Weight: ${(pokemon.weight/10)}kg</p>
                             </div>
                         </div>
