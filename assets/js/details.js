@@ -6,38 +6,51 @@ const moreDetails = (pokemon) =>{
     pokemon.type = type
 
     const photo = pokemon.sprites.other.dream_world.front_default
-    const details = `
-     
-    <div id="popup" class="animate__animated animate__fadeIn">
+    const htmlString = `
+
+    <div id="window" class="animate__animated animate__fadeIn">
         <div id="detailPokemon">
-            <button id="closeBtn" onClick="close()">Close</button>
-
-        <li class="pokemon ${pokemon.type}">
-            <span class="number">#${pokemon.number}</span>
-            <span class="name">${pokemon.name}</span> 
-            <span class="profile">${pokemon.weight/10} Kg</span>
-            <span class="profile">${pokemon.height}0 cm</span>
-
-            <div class="detail">
-                <ol class="types">
-                    ${pokemon.abilities.map((ability) => `<li class="hab ${ability}">${ability}</li>`).join('')}
-                    ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
-                </ol>
-                <img src="${photo}"
-                     alt="${pokemon.name}">
-            </div> </div></div>
-        </li>`
-        pokemonList.innerHTML = details + pokemonList.innerHTML
+            <button id="closeBtn" onClick="closewindow()">X</button>
+            <li class="pokemon ${pokemon.type}">
+                <span class="name">${pokemon.name}</span>
+                <span class="number">#${pokemon.id.toString().padStart(3,"0")}</span>
+                <div class="detail">
+                    <ol class="types">
+                        ${pokemon.types.map((type) =>`<li class="type ${type}">${type}</li>`).join('')}
+                    </ol>
+                    </div>
+                        <img id="img-pokemon" src="${photo}"alt="${pokemon.name}">
+                        <div id="data">
+                            <h4>Base Stats</h4>
+                            <div id="hability">
+                                <div class="stat-desc">
+                                    ${pokemon.stats.map((name_stats) =>`<p class="${type}">${name_stats.stat.name}</p>`).join('')}
+                                </div>
+                            <div class="bar-inner"> ${pokemon.stats.map((base_stats) =>`<p class="${type}">${base_stats.base_stat}</p>`).join('')}</div>
+                        </div>
+                        <div id="stats">
+                            <div class="stat-bar">
+                                <p>Height: ${(pokemon.height/10).toFixed(2)}m</p>
+                                <p>Weight: ${(pokemon.weight/10)}kg</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </div>
+    </div>        
+    `
+    pokemonList.innerHTML = htmlString + pokemonList.innerHTML
 }
 
-const detailButton = async (id) => {
+const selectPokemon = async (id) =>{
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`
     const res = await fetch(url)
     const pokemon = await res.json()
     moreDetails(pokemon)
-}
+    }
 
-const close = () =>{
+const closewindow = () =>{
     const window = document.getElementById('window')
     window.parentElement.removeChild(window)
 }
