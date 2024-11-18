@@ -1,6 +1,6 @@
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
-const detailButton = document.getElementById('detailButton')
+
 
 
 const maxRecords = 151
@@ -20,14 +20,27 @@ function convertPokemonToLi(pokemon) {
 
                 <img src="${pokemon.photo}"
                      alt="${pokemon.name}">
-            </div>  
+            </div>  <button id="detailButton" onClick="detailButton()" type="button">
+                Details
+            </button>
         </li>
         `
          
 }
 
 function moreDetails(pokemon) {
-    return  `
+    const types = pokemon.types.map((typeSlot) => typeSlot.type.name)
+    const [type] = types
+
+    pokemon.types = types
+    pokemon.type = type
+
+    const photo = pokemon.sprites.other.dream_world.front_default
+     const details = `
+    <div id="popup" class="animate__animated animate__fadeIn">
+        <div id="detailPokemon">
+            <button id="closeBtn" onClick="close()">Close</button>
+
         <li class="pokemon ${pokemon.type}">
             <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span> 
@@ -41,21 +54,19 @@ function moreDetails(pokemon) {
                 </ol>
                 <img src="${pokemon.photo}"
                      alt="${pokemon.name}">
-            </div> 
+            </div> </div></div>
         </li>`
+        pokemonList.innerHTML = details + pokemonList.innerHTML
 }
 
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
         const newHtml = pokemons.map(convertPokemonToLi).join('')
+       /* const detailsList = pokemons.map(moreDetails).join('')*/
         pokemonList.innerHTML += newHtml
+       
         
-        detailButton.addEventListener('click', () => {          
-            const details = pokemons.map(moreDetails).join('')
-            pokemonList.innerHTML = ''
-            pokemonList.innerHTML += details                   
-        //criar um novo botao para esconder os detalhes
-    })
+     
     }); 
 }
 
@@ -74,5 +85,18 @@ loadMoreButton.addEventListener('click', () => {
     }
 })
 
- // falta fazer com que os dois botoes trabalhem em conjunto
+
+const detailButton = (id) => {
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}`
+    return fetch(url)
+    .then((pokemon) => pokemon.json)
+    .then((detailRequests) => Promise.all(detailRequests))
+    .then(moreDetails(pokemons))
+}
+
+const close = () =>{
+    const window = document.getElementById('window')
+    window.parentElement.removeChild(window)
+}
+
 

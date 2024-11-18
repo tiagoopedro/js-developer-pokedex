@@ -167,9 +167,7 @@
     border-radius: 1rem;
 }
 .pokemon:hover {
-    filter: brightness(1.15);
-    box-shadow: moccasin;
-    cursor: pointer;
+    
 }
 
 
@@ -181,9 +179,15 @@
     background-color: #4abba8;
     border: none;
     border-radius: 1rem;
-    width: 7%;
+    width: 100%;
     cursor: pointer;   
 }
+#detailButton:hover {
+        filter: brightness(1.15);
+        box-shadow: moccasin;
+        cursor: pointer;
+ }
+
 
 @media screen and (min-width: 380px) {
     .pokemons {
