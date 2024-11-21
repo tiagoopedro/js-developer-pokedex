@@ -36,17 +36,19 @@ const moreDetails = (pokemon) =>{
     pokemonList.innerHTML = detailHtml + pokemonList.innerHTML
 }
 
-const selectPokemon = async (id) =>{
+const selectPokemon =  (id) => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`
-    const res = await fetch(url)
-    const pokemon = await res.json()
-    moreDetails(pokemon)
+    return fetch(url)
+    .then((response) => response.json())
+    .then(moreDetails)
     }
 
 const closewindow = () =>{
     const window = document.getElementById('window')
     window.parentElement.removeChild(window)
 }
+
+
 /* 
 `
     <div id="window">
@@ -85,4 +87,15 @@ const closewindow = () =>{
     /*
     <ol class="types">
         ${pokemon.abilities.map((ability) => `<li class="type ${ability}">${ability}</li>`).join('')}
-    </ol> */
+    </ol> 
+    
+outro metodo
+   const selectPokemon =  async (id) => {
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}`
+    const response = await fetch(url)
+    const pokemon = await response.json()
+    return moreDetails(pokemon)
+    }
+
+
+    */
