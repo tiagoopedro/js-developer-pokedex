@@ -191,7 +191,7 @@
 }
 
 #detail-Btn:hover {
-    filter: brightness(1.25); 
+    background-color: rgb(247, 207, 46);; 
     cursor: pointer;
 }
 

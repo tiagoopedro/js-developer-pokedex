@@ -36,6 +36,11 @@ const moreDetails = (pokemon) =>{
     pokemonList.innerHTML = detailHtml + pokemonList.innerHTML
 }
 
+const closewindow = () =>{
+    const window = document.getElementById('window')
+    window.parentElement.removeChild(window)
+}
+
 const getDetails =  (id) => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`
     return fetch(url)
@@ -43,10 +48,6 @@ const getDetails =  (id) => {
     .then(moreDetails)
     }
 
-const closewindow = () =>{
-    const window = document.getElementById('window')
-    window.parentElement.removeChild(window)
-}
 
 
 /* 
