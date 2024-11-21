@@ -36,10 +36,10 @@ const moreDetails = (pokemon) =>{
     pokemonList.innerHTML = detailHtml + pokemonList.innerHTML
 }
 
-const selectPokemon =  (id) => {
+const getDetails =  (id) => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`
     return fetch(url)
-    .then((response) => response.json())
+    .then((response) => response.json())   
     .then(moreDetails)
     }
 

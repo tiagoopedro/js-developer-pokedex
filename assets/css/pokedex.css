@@ -96,11 +96,6 @@
     border-radius: 1rem;
 }
 
-.pokemon:hover {
-    filter: brightness(1.15); 
-    cursor: pointer;
-}
-
 .pokemon .number {
     color: #000;
     opacity: .3;
@@ -180,6 +175,24 @@
     background-color: #6c79db;
     border: none;
     border-radius: 1rem;
+    cursor: pointer;
+}
+
+#detail-Btn {
+    padding: .25rem .5rem;
+    margin: .25rem .50rem;
+    font-size: .680rem;
+    color: #fff;
+    background-color: #b26cdb;
+    border: none;
+    border-radius: 1rem;
+    align-items: center;
+    
+}
+
+#detail-Btn:hover {
+    filter: brightness(1.25); 
+    cursor: pointer;
 }
 
 #closeBtn{
@@ -223,7 +236,7 @@
 }
 
 #img-pokemon {
-    margin-left:100px;
+    margin-left:130px;
     width: 150px; 
 }
 
