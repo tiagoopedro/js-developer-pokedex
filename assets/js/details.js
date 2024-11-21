@@ -11,9 +11,12 @@ const moreDetails = (pokemon) =>{
         <div id="detailPokemon">
             <button id="closeBtn" onClick="closewindow()">X</button>
             <li class="newDetails ${pokemon.type}">
-                <span class="name">${pokemon.name}</span>
+                <span class="name">${pokemon.name.toUpperCase()}</span>
 
+                <div id="imgDetails">
                 <img id="img-pokemon" src="${photo}"alt="${pokemon.name}">
+                </div>
+
                 <div id="data">
                     <h4>Details</h4>
                     <div id="hability">

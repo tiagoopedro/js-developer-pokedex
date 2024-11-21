@@ -203,8 +203,13 @@
 #detailPokemon {
     text-align: end;
 }
+
+#imgDetail {
+    text-align: left;
+}
+
 #img-pokemon{
-    margin-left:80px;
+    margin-left:100px;
     width: 150px; 
 }
 
@@ -219,26 +224,19 @@
     text-align: center;
 }
 
-#stats{
-    display: flex;
-    font-size: 0.8rem;
-    width: 80%;
-}
-
-.stat-bar{
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    margin: 0 0 0 60px;
-}
-
 
 #hability{
     display: flex;
     width: 100%;
     font-size: 0.8rem;
-    margin: 0 0 0 80px;  
-    
+    margin: 0 0 0 80px;
+}
+/*
+.stat-bar{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 0 0 60px;
 }
 
 .stat-desc{
@@ -266,7 +264,7 @@
     padding-left: 1rem;
     border-radius: 5px;
     
-}
+} */
 
 #closeBtn{
     font-size: .925rem;
