@@ -13,7 +13,7 @@ const moreDetails = (pokemon) =>{
             <li class="newDetails ${pokemon.type}">
                 <span class="name">${pokemon.name.toUpperCase()}</span>
 
-                <div id="imgDetails">
+                <div>
                 <img id="img-pokemon" src="${photo}"alt="${pokemon.name}">
                 </div>
 
@@ -21,7 +21,7 @@ const moreDetails = (pokemon) =>{
                     <h4>Details</h4>
                     <div id="hability">
                         <div class="col1">
-                            ${pokemon.stats.map((name_stats) =>`<p>${name_stats.stat.name}</p>`).join('')}
+                        ${pokemon.abilities.map((habilidade) =>`<p>${habilidade.ability.name}</p>`).join('')}
                         </div>
                         <div class="col2"> 
                             <p>Height: ${(pokemon.height)}cm</p>
@@ -49,45 +49,9 @@ const getDetails =  (id) => {
     }
 
 
-
-/* 
-`
-    <div id="window">
-        <div id="detailPokemon">
-            <button id="closeBtn" onClick="closewindow()">X</button>
-            <li class="newDetails ${pokemon.type}">
-                <span class="name">${pokemon.name}</span>
-                <span class="number">#${pokemon.id}</span>
-                <div class="detail">
-                    </div>
-                        <img id="img-pokemon" src="${photo}"alt="${pokemon.name}">
-                        <div id="data">
-                            <h4>Details</h4>
-                            <div id="hability">
-                                <div class="stat-desc">
-                                    ${pokemon.stats.map((name_stats) =>`<p class="${type}">${name_stats.stat.name}</p>`).join('')}
-                                </div>
-                            <div class="bar-inner"> ${pokemon.stats.map((base_stats) =>`<p class="${type}">${base_stats.base_stat}</p>`).join('')}</div>
-                        </div>
-                        <div id="stats">
-                            <div>
-                                <p>Height: ${(pokemon.height)}cm</p>
-                                <p>Weight: ${(pokemon.weight/10)}kg</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </div>
-    </div>        
-    ` 
-    */
-    
-    
-    
-    /*
+/*
     <ol class="types">
-        ${pokemon.abilities.map((ability) => `<li class="type ${ability}">${ability}</li>`).join('')}
+        ${pokemon.abilities.map((habilidade) => `<li >${habilidade.ability.name}</li>`).join('')}
     </ol> 
     
 outro metodo
