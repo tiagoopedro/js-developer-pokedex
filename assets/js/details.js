@@ -1,10 +1,4 @@
 const moreDetails = (pokemon) =>{
-    /*const types = pokemon.types.map((typeSlot) => typeSlot.type.name)
-    const [type] = types
-
-    pokemon.types = types
-    pokemon.type = type*/
-
     const photo = pokemon.sprites.other.dream_world.front_default
     const detailHtml = `
     <div id="window">
@@ -49,18 +43,3 @@ const getDetails =  (id) => {
     }
 
 
-/*
-    <ol class="types">
-        ${pokemon.abilities.map((habilidade) => `<li >${habilidade.ability.name}</li>`).join('')}
-    </ol> 
-    
-outro metodo
-   const selectPokemon =  async (id) => {
-    const url = `https://pokeapi.co/api/v2/pokemon/${id}`
-    const response = await fetch(url)
-    const pokemon = await response.json()
-    return moreDetails(pokemon)
-    }
-
-
-    */
