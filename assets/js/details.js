@@ -17,13 +17,13 @@ const moreDetails = (pokemon) =>{
                 <img id="img-pokemon" src="${photo}"alt="${pokemon.name}">
                 </div>
 
-                <div id="data">
+                <div id="results">
                     <h4>Details</h4>
                     <div id="hability">
-                        <div class="stat-desc">
-                            ${pokemon.stats.map((name_stats) =>`<p >${name_stats.stat.name}</p>`).join('')}
+                        <div class="col1">
+                            ${pokemon.stats.map((name_stats) =>`<p>${name_stats.stat.name}</p>`).join('')}
                         </div>
-                        <div class="bar-inner"> 
+                        <div class="col2"> 
                             <p>Height: ${(pokemon.height)}cm</p>
                             <p>Weight: ${(pokemon.weight/10)}kg</p>
                         </div>
